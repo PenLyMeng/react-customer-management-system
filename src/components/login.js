@@ -7,9 +7,14 @@ import React, {Component} from 'react'
 import {Form,FormGroup,FormControl,Button,Row,Col} from 'react-bootstrap'
 import '../style/form_login.css'
 import FormHeader from './form_header'
+import {startLogin} from '../action/index'
+import {connect} from 'react-redux'
 
 
 class Login extends Component {
+
+
+
 
 
     render() {
@@ -50,7 +55,7 @@ class Login extends Component {
                            <FormGroup>
 
                                <Col md={2}>
-                                   <Button  id="btn-login" bsClass="btn btn-success" type="submit"><span className="glyphicon glyphicon-lock" aria-hidden="true"></span> Login</Button>
+                                   <Button  id="btn-login" bsClass="btn btn-success" onClick={startLogin}><span className="glyphicon glyphicon-lock" aria-hidden="true"></span> Login</Button>
                                </Col>
 
 
@@ -68,4 +73,9 @@ class Login extends Component {
     }
 }
 
-export default Login
+
+const mapDispatchToProps = (dispatch) => ({
+    startLogin:()=> dispatch(startLogin())
+})
+
+export default connect(undefined,mapDispatchToProps)(Login)
