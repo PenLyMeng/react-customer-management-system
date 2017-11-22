@@ -1,0 +1,23 @@
+
+#container {
+    margin-top: 150px;
+}
+
+#btn-login {
+    width: 90px;
+}
+
+#btn-signup {
+    width: 90px;
+}
+
+#form-login {
+    background-color: #dedede;
+    padding: 24px;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 28px;
+
+}
