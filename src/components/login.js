@@ -15,6 +15,18 @@ class Login extends Component {
 
 
 
+    constructor(props){
+        super(props)
+        this.startLogin = this.startLogin.bind(this)
+
+    }
+
+    startLogin(){
+        this.props.startLogin(this.inputEmail.value,this.inputPassword.value,()=>{
+            console.log("123")
+            this.props.history.push("/")
+        })
+    }
 
 
     render() {
@@ -40,14 +52,14 @@ class Login extends Component {
 
                            <FormGroup controlId="formHorizontalEmail">
                                <Col sm={12}>
-                                   <FormControl type="email" placeholder="Enter Email"></FormControl>
+                                   <FormControl inputRef={email => this.inputEmail = email}   type="email" placeholder="Enter Email"></FormControl>
                                </Col>
 
                            </FormGroup>
 
                            <FormGroup controlId="formHorizontalEmail">
                                <Col sm={12}>
-                                   <FormControl type="email" placeholder="Enter Password"></FormControl>
+                                   <FormControl inputRef={password => this.inputPassword = password}    type="password" placeholder="Enter Password"></FormControl>
                                </Col>
 
                            </FormGroup>
@@ -55,7 +67,7 @@ class Login extends Component {
                            <FormGroup>
 
                                <Col md={2}>
-                                   <Button  id="btn-login" bsClass="btn btn-success" onClick={startLogin}><span className="glyphicon glyphicon-lock" aria-hidden="true"></span> Login</Button>
+                                   <Button  id="btn-login" bsClass="btn btn-success" onClick={this.startLogin}><span className="glyphicon glyphicon-lock" aria-hidden="true"></span> Login</Button>
                                </Col>
 
 
@@ -75,7 +87,7 @@ class Login extends Component {
 
 
 const mapDispatchToProps = (dispatch) => ({
-    startLogin:()=> dispatch(startLogin())
+
 })
 
-export default connect(undefined,mapDispatchToProps)(Login)
+export default connect(mapDispatchToProps,{startLogin})(Login)

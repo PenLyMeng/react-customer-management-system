@@ -2,7 +2,7 @@
  * Created by l.pen on 11/22/2017.
  */
 import {combineReducers} from 'redux'
-import UserReducer from './Users'
+import UserReducer from './users'
 
 
 
